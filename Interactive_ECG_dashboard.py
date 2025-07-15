@@ -1,3 +1,4 @@
+from jupyter_dash import JupyterDash
 import dash
 from dash import html, dcc
 from dash.dependencies import Input, Output
@@ -8,6 +9,8 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import torch
 import torch.nn as nn
+
+# cd /Users/jiahaoshao/Documents/GitHub/Deep-Learning-of-ECG-signals
 
 class ECGModel(nn.Module):
     def __init__(self, num_filters, kernel_size, dropout_rate):
@@ -55,7 +58,9 @@ model.eval()
 SUB_TIMEWINDOW = 960
 
 # Initialize the Dash app
-app = dash.Dash(__name__)
+# app = dash.Dash(__name__)
+app = JupyterDash(__name__)
+
 app.layout = html.Div([
     html.H1('ECG Data Dashboard', style={'textAlign': 'center'}),
     html.Div([
@@ -172,6 +177,7 @@ def update_output(selected_file, plot_type):
 if __name__ == '__main__':
 #    app.run_server(debug=True)
 #    app.run(debug=True)
-    app.run(port=8050, debug=True)
+    # app.run(port=8050, debug=True)
+    app.run_server(mode='external', host='0.0.0.0', port=8050, debug=True)
 
 
