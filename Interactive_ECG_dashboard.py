@@ -173,8 +173,7 @@ def update_output(selected_file, plot_type):
     return fig, result_text
 
 if __name__ == '__main__':
-#    app.run_server(debug=True)
-#     # app.run(port=8050, debug=True)
-    app.run_server(mode='external', host='0.0.0.0', port=8050, debug=True)
+    link = app.run(port=8050, debug=True)
+    print(f"Link: {link}\n")
 
 
