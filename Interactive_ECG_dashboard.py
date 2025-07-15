@@ -171,5 +171,7 @@ def update_output(selected_file, plot_type):
 
 if __name__ == '__main__':
 #    app.run_server(debug=True)
-   app.run(debug=True)
+#    app.run(debug=True)
+    app.run(port=8050, debug=True)
+
 
