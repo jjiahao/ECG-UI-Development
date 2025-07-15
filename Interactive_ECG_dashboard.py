@@ -1,4 +1,3 @@
-from jupyter_dash import JupyterDash
 import dash
 from dash import html, dcc
 from dash.dependencies import Input, Output
@@ -58,8 +57,7 @@ model.eval()
 SUB_TIMEWINDOW = 960
 
 # Initialize the Dash app
-# app = dash.Dash(__name__)
-app = JupyterDash(__name__)
+app = dash.Dash(__name__)
 
 app.layout = html.Div([
     html.H1('ECG Data Dashboard', style={'textAlign': 'center'}),
@@ -176,8 +174,7 @@ def update_output(selected_file, plot_type):
 
 if __name__ == '__main__':
 #    app.run_server(debug=True)
-#    app.run(debug=True)
-    # app.run(port=8050, debug=True)
+#     # app.run(port=8050, debug=True)
     app.run_server(mode='external', host='0.0.0.0', port=8050, debug=True)
 
 
